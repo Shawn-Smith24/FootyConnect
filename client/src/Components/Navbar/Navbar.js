@@ -4,7 +4,8 @@ import { Link, useHistory, useLocation } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import decode from 'jwt-decode';
 
-import FCLogo from '../../images/FCLogo.png';
+
+import FCText from '../../images/FCText.png'
 import * as actionType from '../../constants/actionTypes';
 import useStyles from './styles';
 
@@ -33,13 +34,15 @@ const Navbar = () => {
     }
 
     setUser(JSON.parse(localStorage.getItem('profile')));
-  }, [location]);
+  }, [location, user.token]);
 
   return (
     <AppBar className={classes.appBar} position="static" color="inherit">
       <Link to="/" className={classes.brandContainer}>
-        <img component={Link} to="/" src={FCLogo} alt="icon" height="80px" />
-       
+
+        <img component={Link} to="/" src={FCText} alt="icon" height="60px" />
+
+
       </Link>
       <Toolbar className={classes.toolbar}>
         {user?.result ? (

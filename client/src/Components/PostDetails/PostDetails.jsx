@@ -2,9 +2,10 @@ import React, { useEffect } from 'react';
 import { Paper, Typography, CircularProgress, Divider } from '@material-ui/core/';
 import { useDispatch, useSelector } from 'react-redux';
 import moment from 'moment';
-import { useParams, useHistory } from 'react-router-dom';
+import { useParams, useHistory, Link } from 'react-router-dom';
 
 import { getPost, getPostsBySearch } from '../../actions/posts';
+import CommentSection from './CommentSection';
 import useStyles from './styles';
 
 const Post = () => {
@@ -16,13 +17,13 @@ const Post = () => {
 
   useEffect(() => {
     dispatch(getPost(id));
-  }, [id]);
+  }, [id, dispatch]);
 
   useEffect(() => {
     if (post) {
       dispatch(getPostsBySearch({ search: 'none', tags: post?.tags.join(',') }));
     }
-  }, [post]);
+  }, [post, dispatch]);
 
   if (!post) return null;
 
@@ -43,14 +44,24 @@ const Post = () => {
       <div className={classes.card}>
         <div className={classes.section}>
           <Typography variant="h3" component="h2">{post.title}</Typography>
-          <Typography gutterBottom variant="h6" color="textSecondary" component="h2">{post.tags.map((tag) => `#${tag} `)}</Typography>
+          <Typography gutterBottom variant="h6" color="textSecondary" component="h2">{post.tags.map((tag) => (
+            <Link to={`/tags/${tag}`} style={{ textDecoration: 'none', color: '#3f51b5' }}>
+              {` #${tag} `}
+            </Link>
+          ))}
+          </Typography>
           <Typography gutterBottom variant="body1" component="p">{post.message}</Typography>
-          <Typography variant="h6">Created by: {post.name}</Typography>
+          <Typography variant="h6">
+            Created by:
+            <Link to={`/creators/${post.name}`} style={{ textDecoration: 'none', color: '#3f51b5' }}>
+              {` ${post.name}`}
+            </Link>
+          </Typography>
           <Typography variant="body1">{moment(post.createdAt).fromNow()}</Typography>
           <Divider style={{ margin: '20px 0' }} />
           <Typography variant="body1"><strong>Realtime Chat - coming soon!</strong></Typography>
           <Divider style={{ margin: '20px 0' }} />
-          <Typography variant="body1"><strong>Comments - coming soon!</strong></Typography>
+          <CommentSection post={post} />
           <Divider style={{ margin: '20px 0' }} />
         </div>
         <div className={classes.imageSection}>
@@ -68,7 +79,7 @@ const Post = () => {
                 <Typography gutterBottom variant="subtitle2">{name}</Typography>
                 <Typography gutterBottom variant="subtitle2">{message}</Typography>
                 <Typography gutterBottom variant="subtitle1">Likes: {likes.length}</Typography>
-                <img src={selectedFile} width="200px" />
+                <img src={selectedFile} alt={selectedFile} width="200px" />
               </div>
             ))}
           </div>
