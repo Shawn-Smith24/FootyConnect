@@ -1,2 +1,2 @@
 # Footy Connect 
-Using React, Node.js, Express & MongoDB I built Full Stack MERN Application. The App is called "Footy Connect" and it is a simple social media app that allows users to post interesting topics related to soccer whether it is transfer news, game updates, etc.
+Full Stack MERN Application. The App is called "Footy Connect" and it is a simple social media app that allows users to post interesting topics related to soccer whether it is transfer news, game updates, etc.
