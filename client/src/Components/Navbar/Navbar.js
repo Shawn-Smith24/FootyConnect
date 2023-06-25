@@ -4,7 +4,7 @@ import { Link, useHistory, useLocation } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import decode from 'jwt-decode';
 
-import FootyImg from '../../images/FootyImg.jpeg';
+import FCLogo from '../../images/FCLogo.png';
 import * as actionType from '../../constants/actionTypes';
 import useStyles from './styles';
 
@@ -37,10 +37,10 @@ const Navbar = () => {
 
   return (
     <AppBar className={classes.appBar} position="static" color="inherit">
-      <div className={classes.brandContainer}>
-        <Typography component={Link} to="/" className={classes.heading} variant="h2" align="center">Footy Connect</Typography>
-        <img className={classes.image} src={FootyImg} alt="icon" height="60" />
-      </div>
+      <Link to="/" className={classes.brandContainer}>
+        <img component={Link} to="/" src={FCLogo} alt="icon" height="80px" />
+       
+      </Link>
       <Toolbar className={classes.toolbar}>
         {user?.result ? (
           <div className={classes.profile}>
