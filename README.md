@@ -11,13 +11,9 @@ This documentation provides an overview of the Footy Connect Social Media Blog a
 
 -Commenting: Users can leave comments on posts, promoting discussions and interactions among the community.
 
--Like and Dislike Posts: Users can like or dislike posts, which helps in determining the popularity and engagement of each post.
+-Like Posts: Users can like posts, which helps in determining the popularity and engagement of each post.
 
--Search and Filter: Users can search for specific posts based on keywords or filter posts by categories or tags, making it easier to find relevant content.
-
--User Profiles: Each user has a profile page displaying their posts, comments, and other relevant information. Users can customize their profiles with a profile picture and a bio.
-
--Notifications: Users receive notifications for new comments or likes on their posts, keeping them informed about the activity surrounding their content.
+-Search and Filter: Users can search for specific posts based on title or filter posts by tags, making it easier to find relevant content.
 
 # Technology Stack
 -The Soccer Social Media Blog application is built using the following technologies:
@@ -33,3 +29,18 @@ This documentation provides an overview of the Footy Connect Social Media Blog a
 -Redux: A state management library used to manage the application's global state, making it easier to share and update data across different components.
 
 -Material UI: A popular React UI framework that provides pre-designed components and styling options for building responsive and visually appealing user interfaces.
+
+
+# Front-end set up
+
+Running on *localhost:3000*
+
+```js
+npm i && npm start
+```
+
+# Back-end set-up 
+App is running on *localhost:5555*
+
+```js
+nodemon index.js
