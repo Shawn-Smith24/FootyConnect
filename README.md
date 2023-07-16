@@ -1,6 +1,6 @@
 # Footy Connect 
 
-This documentation provides an overview of the Footy Connect Social Media Blog application built using the MERN stack (MongoDB, Express, React, Node.js), Redux, and Material UI. The application serves as a platform for soccer enthusiasts to share their thoughts, engage in discussions, and stay up-to-date with the latest news and updates in the world of soccer.
+The Footy Connect Social Media Blog application built using the MERN stack (MongoDB, Express, React, Node.js), Redux, and Material UI. The application serves as a platform for soccer enthusiasts to share their thoughts, engage in discussions, and stay up-to-date with the latest news and updates in the world of soccer.
 
 # Features
 -The Soccer Social Media Blog application includes the following features:
